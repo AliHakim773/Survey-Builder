@@ -11,10 +11,7 @@ const seedRoles = [
 ]
 
 mongoose
-    .connect("mongodb://127.0.0.1:27017/db_survays", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect("mongodb://127.0.0.1:27017/db_survays")
     .catch((err) => {
         console.log(err.stack)
         process.exit(1)

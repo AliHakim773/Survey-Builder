@@ -24,7 +24,7 @@ const seedDB = async () => {
             firstName: "Ali",
             lastName: "Hakim",
             age: 23,
-            role_id: adminRole._id,
+            role: adminRole._id,
         }),
     ]
 
