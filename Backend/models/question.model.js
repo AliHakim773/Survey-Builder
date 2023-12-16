@@ -11,7 +11,7 @@ const questionSchema = mongoose.Schema({
         ref: "QuestionType",
         required: "true",
     },
-    question: {
+    content: {
         type: String,
         required: true,
         minlength: 4,
