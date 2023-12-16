@@ -1,9 +1,9 @@
 const { default: mongoose } = require("mongoose")
 
 const questionSchema = mongoose.Schema({
-    servey: {
+    survey: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Servey",
+        ref: "Survey",
         required: "true",
     },
     type: {
