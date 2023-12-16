@@ -26,10 +26,6 @@ const userSchema = new mongoose.Schema(
             required: true,
             minlength: 2,
         },
-        age: {
-            type: Number,
-            required: false,
-        },
         role: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Role",
