@@ -35,6 +35,12 @@ const userSchema = new mongoose.Schema(
             ref: "Role",
             required: true,
         },
+        takenSurveys: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Survey",
+            },
+        ],
     },
     {
         timestamps: true,

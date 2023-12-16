@@ -1,12 +1,7 @@
 const { default: mongoose } = require("mongoose")
 
-const survaySchema = mongoose.Schema(
+const surveySchema = mongoose.Schema(
     {
-        admin: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
-        },
         title: {
             type: String,
             required: true,
@@ -16,12 +11,18 @@ const survaySchema = mongoose.Schema(
             type: String,
             require: false,
         },
+        questions: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Question",
+            },
+        ],
     },
     {
         timestamps: true,
     }
 )
 
-const Survay = mongoose.model("Survay", survaySchema)
+const Survey = mongoose.model("Survey", surveySchema)
 
-module.exports = Survay
+module.exports = Survey

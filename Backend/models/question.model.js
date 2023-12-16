@@ -1,9 +1,9 @@
 const { default: mongoose } = require("mongoose")
 
 const questionSchema = mongoose.Schema({
-    servay_id: {
+    servey: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Servay",
+        ref: "Servey",
         required: "true",
     },
     type: {
@@ -16,6 +16,12 @@ const questionSchema = mongoose.Schema({
         required: true,
         minlength: 4,
     },
+    answers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Answer",
+        },
+    ],
 })
 
 const Question = mongoose.model("Question", questionSchema)

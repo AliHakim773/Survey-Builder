@@ -6,9 +6,9 @@ const userAnswerSchema = mongoose.Schema({
         ref: "User",
         required: true,
     },
-    servay: {
+    servey: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Survay",
+        ref: "Survey",
         required: true,
     },
     answer: {
