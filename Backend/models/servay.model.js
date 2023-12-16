@@ -4,6 +4,7 @@ const survaySchema = mongoose.Schema(
     {
         admin: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true,
         },
         title: {
