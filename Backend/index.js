@@ -9,6 +9,10 @@ app.use(express.json())
 const authRoutes = require("./routes/auth.routes")
 app.use("/auth", authRoutes)
 
+//survey rutes
+const surveyRoutes = require("./routes/survey.routes")
+app.use("/survey", surveyRoutes)
+
 app.listen(8000, () => {
     console.log("Server listining on PORT: ", 8000)
     connectToMongoDB()
