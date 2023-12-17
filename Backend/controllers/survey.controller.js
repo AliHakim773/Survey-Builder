@@ -87,7 +87,29 @@ const getAllSurveys = async (rep, res) => {
     }
 }
 
+const getSurveyById = async (rep, res) => {
+    const { id } = rep.params
+    if (!id) res.status(400).send({ message: "missing id" })
+    try {
+        const survey = await Survey.find({ _id: id })
+            .populate({
+                path: "questions",
+                populate: [
+                    { path: "type" },
+                    {
+                        path: "answers",
+                    },
+                ],
+            })
+            .select("-question._id")
+        res.status(200).send({ survey })
+    } catch (e) {
+        res.status(500).send({ error: e, message: "id not found", id })
+    }
+}
+
 module.exports = {
     getAllSurveys,
     addSurvey,
+    getSurveyById,
 }
