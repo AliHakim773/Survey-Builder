@@ -1,6 +1,7 @@
 const Question = require("../models/question.model")
 const Survey = require("../models/servey.model")
 const questionType = require("../models/questionType.model")
+const Answer = require("../models/answer.model")
 
 const addSurvey = async (rep, res) => {
     const { title, description, questions } = rep.body
@@ -42,6 +43,23 @@ const addSurvey = async (rep, res) => {
                 },
                 { new: true, useFindAndModify: false }
             )
+
+            question.answers.map(async (answer) => {
+                const ans = await Answer.create({
+                    content: answer,
+                    question: q._id,
+                })
+
+                await Question.findByIdAndUpdate(
+                    q._id,
+                    {
+                        $push: {
+                            answers: ans._id,
+                        },
+                    },
+                    { new: true, useFindAndModify: false }
+                )
+            })
         })
 
         res.status(200).send({ survey })
