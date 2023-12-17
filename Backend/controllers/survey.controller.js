@@ -70,17 +70,7 @@ const addSurvey = async (rep, res) => {
 
 const getAllSurveys = async (rep, res) => {
     try {
-        const surveys = await Survey.find()
-            .populate({
-                path: "questions",
-                populate: [
-                    { path: "type" },
-                    {
-                        path: "answers",
-                    },
-                ],
-            })
-            .select("-question._id")
+        const surveys = await Survey.find().populate()
         res.status(200).send({ surveys })
     } catch (e) {
         res.status(500).send({ error: e })
