@@ -98,8 +98,21 @@ const getSurveyById = async (rep, res) => {
     }
 }
 
+const deleteSurvey = async (rep, res) => {
+    const { id } = rep.params
+    if (!id) res.status(400).send({ message: "missing id" })
+
+    try {
+        await Survey.deleteOne({ _id: id })
+        res.status(200).send({ message: "Survey deleted successfuly" })
+    } catch (e) {
+        res.status(500).send({ error: e })
+    }
+}
+
 module.exports = {
     getAllSurveys,
     addSurvey,
     getSurveyById,
+    deleteSurvey,
 }
