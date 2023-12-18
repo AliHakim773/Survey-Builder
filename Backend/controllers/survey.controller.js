@@ -2,6 +2,7 @@ const Question = require("../models/question.model")
 const Survey = require("../models/servey.model")
 const questionType = require("../models/questionType.model")
 const Answer = require("../models/answer.model")
+const UserAnswer = require("../models/userAnswer.model")
 
 const addSurvey = async (rep, res) => {
     const { title, description, questions } = rep.body
@@ -110,9 +111,28 @@ const deleteSurvey = async (rep, res) => {
     }
 }
 
+const addUserAswers = async (rep, res) => {
+    const { answer, surveyId } = rep.body
+    const userId = rep.user._id
+    try {
+        answer.map(async (ans) => {
+            await UserAnswer.create({
+                user: userId,
+                servey: surveyId,
+                question: ans.question,
+                answer: ans.content,
+            })
+        })
+        res.status(200).send({ message: "Answers recorded successfuly" })
+    } catch (e) {
+        res.status(500).send({ error: e })
+    }
+}
+
 module.exports = {
     getAllSurveys,
     addSurvey,
     getSurveyById,
     deleteSurvey,
+    addUserAswers,
 }

@@ -11,9 +11,13 @@ const userAnswerSchema = mongoose.Schema({
         ref: "Survey",
         required: true,
     },
-    answer: {
+    question: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Answer",
+        ref: "Question",
+        required: true,
+    },
+    answer: {
+        type: String,
         required: true,
     },
 })
