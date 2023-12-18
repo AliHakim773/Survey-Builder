@@ -129,10 +129,22 @@ const addUserAswers = async (rep, res) => {
     }
 }
 
+const deleteUserAnswers = async (rep, res) => {
+    const userId = rep.user._id
+    const { serveyId } = rep.params
+    try {
+        await UserAnswer.deleteMany({ servey: serveyId, user: userId })
+        res.status(200).send({ message: "Answers deleted successfuly" })
+    } catch (e) {
+        res.status(500).send({ error: e })
+    }
+}
+
 module.exports = {
     getAllSurveys,
     addSurvey,
     getSurveyById,
     deleteSurvey,
     addUserAswers,
+    deleteUserAnswers,
 }
