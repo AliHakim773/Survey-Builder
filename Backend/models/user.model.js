@@ -26,6 +26,9 @@ const userSchema = new mongoose.Schema(
             required: true,
             minlength: 2,
         },
+        email: {
+            type: String,
+        },
         role: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Role",

@@ -27,7 +27,6 @@ const register = async (rep, res) => {
 
 const login = async (req, res) => {
     const { username, password } = req.body
-
     // check if user is available in DB
     const user = await User.findOne({ username })
     if (!user) res.status(400).send({ message: "Invalid username/password" })

@@ -24,6 +24,7 @@
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 .form-label {
+    user-select: none;
     position: absolute;
     z-index: 1;
     top: 50%;
