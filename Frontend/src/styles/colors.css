@@ -1,32 +1,18 @@
 :root {
-    --primary-color: blue;
-    --secondary-color: yellow;
-    --confirm-color: green;
-    --danger-color: red;
-    --white-color: #e6e6e6;
-    --black-color: #141414;
+    --orange: #ff8000;
+    --orange-light: #ffe6cc;
+    --white: #e6e6e6;
+    --black: #141414;
 }
-.primary-color {
-    color: var(--primary-color);
+.orange {
+    color: var(--orange);
 }
-.primary-bg {
-    background-color: var(--primary-color);
+.orange-bg {
+    background-color: var(--orange);
 }
-.secondary-color {
-    color: var(--secondary-color);
+.orange-light {
+    color: var(--orange-light);
 }
-.secondary-bg {
-    background-color: var(--secondary-color);
-}
-.confirm-color {
-    color: var(--confirm-color);
-}
-.confirm-bg {
-    background-color: var(--confirm-color);
-}
-.danger-color {
-    color: var(--danger-color);
-}
-.danger-bg {
-    background-color: var(--danger-color);
+.orange-light-bg {
+    background-color: var(--orange-light);
 }
