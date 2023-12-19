@@ -1,0 +1,24 @@
+.login-item {
+    width: 400px;
+    margin-top: 0.25rem;
+}
+.btn-orange {
+    color: var(--white);
+    background-color: var(--orange);
+}
+.btn-orange:hover {
+    background-color: var(--orange-light);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+}
+.login-item:last-child {
+    margin-top: 1.5rem;
+}
+.login-item small {
+    font-size: 11px;
+    padding: 0.5rem 5px;
+    color: rgb(85, 85, 85);
+}
+.login-item small .link:hover {
+    color: var(--orange);
+}

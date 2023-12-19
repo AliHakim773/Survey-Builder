@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Layout from "./components/Layout"
 import "./styles/index.css"
 import Login from "./pages/Login"
@@ -6,9 +6,11 @@ import Login from "./pages/Login"
 function App() {
     return (
         <Layout>
-            <Routes>
-                <Route path='/' element={<Login />} />
-            </Routes>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<Login />} />
+                </Routes>
+            </BrowserRouter>
         </Layout>
     )
 }
