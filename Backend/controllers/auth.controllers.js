@@ -67,7 +67,30 @@ const login = async (req, res) => {
     })
 }
 
+const refresh = async (req, res) => {
+    // check if user is available in DB
+    const user = await User.findOne({ username: req.user.username })
+    if (!user) res.status(400).send({ message: "Invalid username/password" })
+
+    const { password: hashedPassword, _id, ...userDetails } = user.toJSON()
+
+    // generate JWT token
+    const token = jwt.sign(
+        {
+            ...userDetails,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "2 days" }
+    )
+
+    res.status(200).send({
+        user: userDetails,
+        token,
+    })
+}
+
 module.exports = {
     register,
     login,
+    refresh,
 }
