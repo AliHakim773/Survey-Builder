@@ -15,13 +15,13 @@ const SurveyList = () => {
     }, [])
     return (
         <div className='page-section'>
-            <section className='section-body flex column'>
+            <section className='section-body flex survey-list column'>
                 <div className='survey-nav flex row'>
                     <div className='survey-nav-item flex center'>All</div>
                     <div className='survey-nav-item flex center'>Completed</div>
                     <div className='survey-nav-item flex center'>Create</div>
                 </div>
-                <div className='survey-list flex column'>
+                <div className='flex column'>
                     {surveys?.map((survey) => (
                         <SurveyItem
                             key={survey._id}

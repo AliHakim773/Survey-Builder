@@ -13,7 +13,7 @@ export const sendRequest = async ({ route, method = "GET", body }) => {
         data: body,
         headers: {
             Authorization: authorizationHeader,
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
         },
     })
 

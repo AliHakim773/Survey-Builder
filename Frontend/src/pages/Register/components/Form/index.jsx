@@ -21,6 +21,7 @@ const Form = () => {
         confirmPassword: "",
         firstName: "",
         lastName: "",
+        img: null,
     })
     const HandleOnInputChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value })
@@ -123,6 +124,12 @@ const Form = () => {
                     />
                 </div>
             </div>
+            <input
+                type='file'
+                onChange={HandleOnInputChange}
+                name='img'
+                value={values.img}
+            />
             <div className='register-item register-item-btn '>
                 <Button
                     text='Create Account'

@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema(
         email: {
             type: String,
         },
+        img: {
+            type: String,
+        },
         role: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Role",

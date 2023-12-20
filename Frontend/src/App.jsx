@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import SurveyList from "./pages/SurveyList"
 import Survey from "./pages/Survey"
+import SurveyBuild from "./pages/SurveyBuild"
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path='/survey/:id' element={<Survey />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
+                    <Route path='/build' element={<SurveyBuild />} />
                 </Routes>
             </Layout>
         </BrowserRouter>
