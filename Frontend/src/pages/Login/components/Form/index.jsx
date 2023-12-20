@@ -26,7 +26,7 @@ const Form = () => {
             errorBlink(setError, "username and password cant be empty")
             return
         }
-        console.log(credentials)
+
         try {
             const res = await sendRequest({
                 route: "/auth/login",
@@ -34,6 +34,7 @@ const Form = () => {
                 body: credentials,
             })
             console.log(res)
+            localStorage.setItem("token", `Bearer ${res.token}`)
             dispatch(setUser(res.user))
             // navigate("/register")
         } catch (e) {

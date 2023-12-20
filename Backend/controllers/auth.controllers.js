@@ -4,8 +4,8 @@ const Role = require("../models/role.model")
 const User = require("../models/user.model")
 
 const register = async (rep, res) => {
-    const { username, password, firstName, lastName } = rep.body
-    if (!username || !password || !firstName || !lastName) {
+    const { username, password, firstName, lastName, email } = rep.body
+    if (!username || !password || !firstName || !lastName || !email) {
         res.status(400).send({ message: "Something is missing" })
     }
 
@@ -16,10 +16,24 @@ const register = async (rep, res) => {
             password,
             firstName,
             lastName,
+            email,
             role: role._id,
         })
 
-        res.status(200).send({ user })
+        const token = jwt.sign(
+            {
+                username,
+                password,
+                firstName,
+                lastName,
+                email,
+                role: role._id,
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: "2 days" }
+        )
+
+        res.status(200).send({ user, token })
     } catch (e) {
         res.status(500).send({ error: e })
     }
