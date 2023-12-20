@@ -12,7 +12,7 @@ app.use(cors())
 const authRoutes = require("./routes/auth.routes")
 app.use("/auth", authRoutes)
 
-//survey rutes
+//survey routes
 const surveyRoutes = require("./routes/survey.routes")
 app.use("/survey", authMiddleware, surveyRoutes)
 

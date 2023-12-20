@@ -36,7 +36,7 @@ const Form = () => {
             console.log(res)
             localStorage.setItem("token", `Bearer ${res.token}`)
             dispatch(setUser(res.user))
-            // navigate("/register")
+            navigate("/")
         } catch (e) {
             errorBlink(setError, "wrong username or password")
         }

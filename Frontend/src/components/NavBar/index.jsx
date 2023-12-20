@@ -18,7 +18,7 @@ const NavBar = () => {
                 localStorage.setItem("token", `Bearer ${res.token}`)
                 dispatch(setUser(res.user))
             } catch (e) {
-                console.log(e)
+                navigate("/login")
             }
         }
         refresh()
@@ -44,7 +44,7 @@ const NavBar = () => {
                         className='nav-item'
                         onClick={() => {
                             localStorage.removeItem("token")
-                            navigate("/")
+                            navigate(0)
                         }}
                         to={"/"}>
                         Logout

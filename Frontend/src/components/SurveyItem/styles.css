@@ -1,0 +1,11 @@
+.survey-item {
+    padding-block: 30px;
+    width: 100%;
+}
+.survey-item:not(:last-child) {
+    border-bottom: 1px solid var(--orange);
+}
+.view-btn {
+    margin-left: auto;
+    width: 70px;
+}

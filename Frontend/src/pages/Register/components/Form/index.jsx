@@ -56,7 +56,7 @@ const Form = () => {
             console.log(res)
             localStorage.setItem("token", `Bearer ${res.token}`)
             dispatch(setUser(res.user))
-            // navigate("/")
+            navigate("/")
         } catch (e) {
             errorBlink(setError, "username exist")
         }
